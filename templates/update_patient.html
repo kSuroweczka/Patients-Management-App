@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Patient</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='update_patient.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Patient</h1>
+      <form action="/update_patient/{{ patient[0] }}" method="post">
+        <label for="firstname">First Name:</label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          value="{{ patient[1] }}"
+          required
+        /><br /><br />
+        <label for="lastname">Last Name:</label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          value="{{ patient[2] }}"
+          required
+        /><br /><br />
+        <label for="pesel">PESEL:</label>
+        <input
+          type="text"
+          id="pesel"
+          name="pesel"
+          value="{{ patient[3] }}"
+          required
+        /><br /><br />
+        <label for="street">Street:</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          value="{{ patient[4] }}"
+          required
+        /><br /><br />
+        <label for="city">City:</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          value="{{ patient[5] }}"
+          required
+        /><br /><br />
+        <label for="zip">Zip Code:</label>
+        <input
+          type="text"
+          id="zip"
+          name="zip"
+          value="{{ patient[6] }}"
+          required
+        /><br /><br />
+        <label for="url">Image URL:</label>
+        <input
+          type="text"
+          id="url"
+          name="url"
+          value="{{ patient[7] }}"
+          required
+        /><br /><br />
+
+        <button type="submit">Apply</button>
+      </form>
+      <a href="/">Back to Patients List</a>
+    </div>
+  </body>
+</html>

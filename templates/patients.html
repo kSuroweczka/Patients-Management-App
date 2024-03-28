@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patients Management</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patients Management</h1>
+    </br>
+    <form action="/" method="post">
+      <input type="text" name="search" placeholder="Search..." />
+      <button type="submit">Search</button>
+    </form>
+  
+
+  <form action="/" method="post">
+    <input type="hidden" name="search" value="{{ request.form.get('search', '') }}">
+    <select name="sort_by">
+        <option value="firstname">Sort by Firstname</option>
+        <option value="lastname">Sort by Lastname</option>
+    </select>
+    <select name="sort_order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    <button type="submit">Sort</button>
+</form>
+
+<form action="/" method="get">
+  <button type="submit">Display All</button>
+</form>
+    
+      <h4>Our Patients:</h4>
+
+      <ul>
+        {% for patient in patients %}
+        <li>
+          <a href="/patient/{{ patient[0] }}"
+            >{{ patient[1] }} {{ patient[2] }}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+    
+      <form action="/add_patient" method="get">
+        <button type="submit" class="add-button">Add Patient</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Patient</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='add_patient.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add New Patient</h1>
+      <form action="/add_patient" method="post">
+        <label for="firstname">First Name:</label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          pattern="[A-Za-z]+"
+          title="Please enter letters only"
+          required
+        /><br />
+        <span class="error-message" id="firstname-error"></span><br /><br />
+
+        <label for="lastname">Last Name:</label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          pattern="[A-Za-z]+"
+          title="Please enter letters only"
+          required
+        /><br />
+        <span class="error-message" id="lastname-error"></span><br /><br />
+
+        <label for="pesel">PESEL:</label>
+        <input
+          type="text"
+          id="pesel"
+          name="pesel"
+          pattern="[0-9]{11}"
+          title="Please enter exactly 11 digits"
+          required
+        /><br />
+        <span class="error-message" id="pesel-error"></span><br /><br />
+
+        <label for="street">Street:</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          pattern="[A-Za-z0-9\s]+"
+          title="Please enter alphanumeric characters and spaces only"
+          required
+        /><br />
+        <span class="error-message" id="street-error"></span><br /><br />
+
+        <label for="city">City:</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          pattern="[A-Za-z\s]+"
+          title="Please enter letters and spaces only"
+          required
+        /><br />
+        <span class="error-message" id="city-error"></span><br /><br />
+
+        <label for="zip">Zip Code:</label>
+        <input
+          type="text"
+          id="zip"
+          name="zip"
+          pattern="\d{2}-\d{3}"
+          title="Please enter the zip code in the format xx-xxx"
+          required
+        /><br />
+        <span class="error-message" id="zip-error"></span><br /><br />
+
+        <label for="url">Image Link:</label>
+        <input type="text" id="url" name="url" /><br /><br />
+
+        <button type="submit">Add Patient</button>
+      </form>
+      <a href="/">Back to Patients List</a>
+    </div>
+  </body>
+</html>
