@@ -11,7 +11,7 @@ def create_database():
     conn.commit()
     conn.close()
 
-def add_patient(firstname, lastname, pesel, street, city, zip_code, url):
+def add_patient (firstname, lastname, pesel, street, city, zip_code, url):
     conn = sqlite3.connect('patients.db')
     c = conn.cursor()
     c.execute("INSERT INTO patients (firstname, lastname, pesel, street, city, zip, url) VALUES (?, ?, ?, ?, ?, ?, ?)", (firstname, lastname, pesel, street, city, zip_code, url))
@@ -79,9 +79,9 @@ def index():
     
     return render_template('patients.html', patients=patients)
 
-@app.route('/patient/<int:patient_id>')
-def patient(patient_id):
-    patient = get_patient(patient_id)
+@app.route('/patient/<int:id>')
+def patient(id):
+    patient = get_patient(id)
     return render_template('patient.html', patient=patient)
 
 @app.route('/add_patient', methods=['GET', 'POST'])
